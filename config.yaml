@@ -1,0 +1,11 @@
+# Local AI Agent configuration
+model_path: models/llama-3.2-3B-Instruct.Q4_K_M.gguf  # Change to your GGUF model
+n_ctx: 4096
+n_threads: 4
+
+# Data & persistence
+memory_dir: data/memory
+training_examples_path: data/training/examples.jsonl
+
+# Safety
+allow_destructive_tools: false
