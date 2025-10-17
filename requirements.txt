@@ -1,0 +1,11 @@
+numpy>=1.24
+typer[all]>=0.12
+rich>=13
+pydantic>=2
+pyyaml>=6
+requests>=2
+beautifulsoup4>=4.12
+llama-cpp-python>=0.2.90
+faiss-cpu>=1.8.0
+fastembed>=0.3.4
+huggingface_hub>=0.23
