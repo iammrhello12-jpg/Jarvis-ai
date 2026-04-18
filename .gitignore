@@ -1,34 +1,62 @@
-# Gradle files
-.gradle/
-build/
+# Dependencies
+node_modules
+.pnp
+.pnp.js
+.yarn/install-state.gz
 
-# Local configuration file (sdk path, etc)
-local.properties
+# Testing
+coverage
 
-# Log/OS Files
-*.log
+# Next.js
+.next/
+out/
 
-# Android Studio generated files and folders
-captures/
-.externalNativeBuild/
-.cxx/
-*.aab
-*.apk
-output-metadata.json
+# Production
+build
+dist
 
-# IntelliJ
-*.iml
+# Misc
+.DS_Store
+*.pem
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Local env files
+.env*.local
+.env
+
+# Vercel
+.vercel
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# IDE
 .idea/
-misc.xml
-deploymentTargetDropDown.xml
-render.experimental.xml
+.vscode/
+*.swp
+*.swo
 
-# Keystore files
-*.jks
-*.keystore
+# Python (for ai_agent folder)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+.venv/
+ENV/
+env/
+*.egg-info/
+.eggs/
 
-# Google Services (e.g. APIs or Firebase)
-google-services.json
+# Model files (too large for git)
+models/
+*.gguf
 
-# Android Profiling
-*.hprof
+# Data
+data/
