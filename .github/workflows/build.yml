@@ -1,0 +1,93 @@
+name: Build and Release Shopkeeper Pro
+
+on:
+  push:
+    branches: [ "main", "shopkeeper-pro-app" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-python:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.12"
+    - name: Install dependencies
+      run: |
+        cd shopkeeper-app/backend-python
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install pytest httpx
+    - name: Run tests
+      run: |
+        cd shopkeeper-app/backend-python
+        pytest
+
+  build-java:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up JDK 21
+      uses: actions/setup-java@v3
+      with:
+        java-version: '21'
+        distribution: 'temurin'
+        cache: gradle
+    - name: Build with Gradle
+      run: |
+        cd shopkeeper-app/backend-java
+        chmod +x gradlew
+        ./gradlew build
+
+  build-web:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '22'
+        cache: 'npm'
+        cache-dependency-path: shopkeeper-app/frontend-web/package-lock.json
+    - name: Install dependencies
+      run: |
+        cd shopkeeper-app/frontend-web
+        npm install
+    - name: Build
+      run: |
+        cd shopkeeper-app/frontend-web
+        npm run build
+
+  build-android:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up JDK 17
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: gradle
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '22'
+        cache: 'npm'
+        cache-dependency-path: shopkeeper-app/mobile-app/package-lock.json
+    - name: Install dependencies
+      run: |
+        cd shopkeeper-app/mobile-app
+        npm install
+    - name: Build Android Release
+      run: |
+        cd shopkeeper-app/mobile-app/android
+        chmod +x gradlew
+        ./gradlew assembleRelease
+    - name: Upload APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: shopkeeper-pro-apk
+        path: shopkeeper-app/mobile-app/android/app/build/outputs/apk/release/app-release.apk
