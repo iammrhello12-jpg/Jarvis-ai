@@ -28,7 +28,7 @@ function App() {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get(`${API_BASE}/products/`);
+      const response = await axios.get(`${API_BASE}/api/products/`);
       setProducts(response.data);
       setLoading(false);
     } catch (error) {
@@ -40,7 +40,7 @@ function App() {
   const handleAddProduct = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`${API_BASE}/products/`, newProduct);
+      await axios.post(`${API_BASE}/api/products/`, newProduct);
       setShowAddModal(false);
       setNewProduct({ name: "", description: "", price: 0, stock_quantity: 0 });
       fetchProducts();
@@ -51,7 +51,7 @@ function App() {
 
   const deleteProduct = async (id) => {
     try {
-      await axios.delete(`${API_BASE}/products/${id}`);
+      await axios.delete(`${API_BASE}/api/products/${id}`);
       fetchProducts();
     } catch (error) {
       console.error("Error deleting product", error);

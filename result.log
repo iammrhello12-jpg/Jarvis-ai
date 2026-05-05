@@ -1,0 +1,19 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.13, pytest-9.0.3, pluggy-1.6.0
+rootdir: /app
+plugins: anyio-4.13.0
+collected 3 items
+
+shopkeeper_app/backend_python/test_main.py ...                           [100%]
+
+=============================== warnings summary ===============================
+shopkeeper_app/backend_python/database.py:12
+  /app/shopkeeper_app/backend_python/database.py:12: MovedIn20Warning: The ``declarative_base()`` function is now available as sqlalchemy.orm.declarative_base(). (deprecated since: 2.0) (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)
+    Base = declarative_base()
+
+shopkeeper_app/backend_python/main.py:28
+  /app/shopkeeper_app/backend_python/main.py:28: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    class Product(ProductBase):
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 3 passed, 2 warnings in 0.97s =========================
