@@ -4,11 +4,11 @@ Shopkeeper Pro is a multi-platform application designed to help shopkeepers mana
 
 ## Project Structure
 
-- `backend-python/`: FastAPI application for Inventory Management (Products, Stock).
-- `backend-java/`: Spring Boot application for Sales Tracking.
-- `frontend-web/`: React + Vite dashboard for shopkeepers.
-- `mobile-app/`: React Native application for mobile access.
-  - **Release APK**: Located at `mobile-app/android/app/build/outputs/apk/release/app-release.apk`.
+- `backend_python/`: FastAPI application for Inventory Management (Products, Stock).
+- `backend_java/`: Spring Boot application for Sales Tracking.
+- `frontend_web/`: React + Vite dashboard for shopkeepers.
+- `mobile_app/`: React Native application for mobile access.
+  - **Release APK**: Located at `mobile_app/android/app/build/outputs/apk/release/app-release.apk`.
 
 ## Features
 
@@ -21,28 +21,28 @@ Shopkeeper Pro is a multi-platform application designed to help shopkeepers mana
 
 ### Python Backend
 ```bash
-cd backend-python
+cd backend_python
 pip install -r requirements.txt
 uvicorn main:app --reload
 ```
 
 ### Java Backend
 ```bash
-cd backend-java
+cd backend_java
 ./gradlew bootRun
 ```
 
 ### Web Frontend
 ```bash
-cd frontend-web
+cd frontend_web
 npm install
 npm run dev
 ```
 
 ### Mobile App
-The pre-built release APK is available in the `mobile-app` directory. To run in development:
+The pre-built release APK is available in the `mobile_app` directory. To run in development:
 ```bash
-cd mobile-app
+cd mobile_app
 npm install
 npx react-native run-android
 ```

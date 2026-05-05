@@ -2,7 +2,7 @@ name: Build and Release Shopkeeper Pro
 
 on:
   push:
-    branches: [ "main", "shopkeeper-pro-app" ]
+    branches: [ "main", "shopkeeper-pro-app-13160478473014464074" ]
   pull_request:
     branches: [ "main" ]
 
@@ -17,14 +17,12 @@ jobs:
         python-version: "3.12"
     - name: Install dependencies
       run: |
-        cd shopkeeper-app/backend-python
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         pip install pytest httpx
     - name: Run tests
       run: |
-        cd shopkeeper-app/backend-python
-        pytest
+        pytest shopkeeper_app/backend_python/test_main.py
 
   build-java:
     runs-on: ubuntu-latest
@@ -38,7 +36,7 @@ jobs:
         cache: gradle
     - name: Build with Gradle
       run: |
-        cd shopkeeper-app/backend-java
+        cd shopkeeper_app/backend_java
         chmod +x gradlew
         ./gradlew build
 
@@ -51,14 +49,14 @@ jobs:
       with:
         node-version: '22'
         cache: 'npm'
-        cache-dependency-path: shopkeeper-app/frontend-web/package-lock.json
+        cache-dependency-path: shopkeeper_app/frontend_web/package-lock.json
     - name: Install dependencies
       run: |
-        cd shopkeeper-app/frontend-web
+        cd shopkeeper_app/frontend_web
         npm install
     - name: Build
       run: |
-        cd shopkeeper-app/frontend-web
+        cd shopkeeper_app/frontend_web
         npm run build
 
   build-android:
@@ -76,18 +74,18 @@ jobs:
       with:
         node-version: '22'
         cache: 'npm'
-        cache-dependency-path: shopkeeper-app/mobile-app/package-lock.json
+        cache-dependency-path: shopkeeper_app/mobile_app/package-lock.json
     - name: Install dependencies
       run: |
-        cd shopkeeper-app/mobile-app
+        cd shopkeeper_app/mobile_app
         npm install
     - name: Build Android Release
       run: |
-        cd shopkeeper-app/mobile-app/android
+        cd shopkeeper_app/mobile_app/android
         chmod +x gradlew
         ./gradlew assembleRelease
     - name: Upload APK
       uses: actions/upload-artifact@v4
       with:
         name: shopkeeper-pro-apk
-        path: shopkeeper-app/mobile-app/android/app/build/outputs/apk/release/app-release.apk
+        path: shopkeeper_app/mobile_app/android/app/build/outputs/apk/release/app-release.apk
