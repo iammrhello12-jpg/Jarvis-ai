@@ -1,0 +1,17 @@
+
+FAILURE: Build failed with an exception.
+
+* Where:
+Settings file '/app/shopkeeper_app/mobile_app/android/settings.gradle' line: 2
+
+* What went wrong:
+A problem occurred evaluating settings 'ShopkeeperMobile'.
+> Could not read script '/app/shopkeeper_app/mobile_app/node_modules/@react-native-community/cli-platform-android/native_modules.gradle' as it does not exist.
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 1s

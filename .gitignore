@@ -45,7 +45,7 @@ build/
 !**/src/test/**
 
 # Android
-*.apk
+# *.apk
 *.aar
 *.ap_
 *.dex

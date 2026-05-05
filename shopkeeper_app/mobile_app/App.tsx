@@ -23,7 +23,7 @@ const App = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch(`${API_BASE}/products/`);
+      const response = await fetch(`${API_BASE}/api/products/`);
       const data = await response.json();
       setProducts(data);
       setLoading(false);
