@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+shop.db
+node_modules/
+dist/
+.gradle/
+build/
+local.properties

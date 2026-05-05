@@ -1,0 +1,11 @@
+M  .gitignore
+A  apk_verify.txt
+A  pytest_output.txt
+A  result.log
+M  shopkeeper_app/backend_python/main.py
+M  shopkeeper_app/backend_python/test_main.py
+M  shopkeeper_app/frontend_web/src/App.jsx
+M  shopkeeper_app/mobile_app/App.tsx
+A  shopkeeper_app/mobile_app/android/build.log
+A  shopkeeper_app/releases/shopkeeper-pro-release.apk
+?? status.txt
